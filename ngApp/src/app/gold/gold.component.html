@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="card m-3" (click)="getPlayer(player._id)" style="width: 20rem; float: left" *ngFor="let player of players">
+      <div class="card-body">
+        <h5 class="card-title d-flex justify-content-between">{{player.name}}
+          <!-- <span class="text-right">{{player.OPR}}</span> -->
+          <span 
+              class="badge badge-pill" 
+              [ngClass]="{'badge-dark':player.OPR > 85, 
+                          'badge-warning': player.OPR >= 79 && player.OPR <= 84,
+                          'badge-secondary': player.OPR <= 78 && player.OPR >= 72,
+                          'badge-danger': player.OPR <= 71 && player.OPR >= 64,
+                          'badge-light': player.OPR <= 63
+                           }">   {{ player.OPR }}
+          </span>
+        </h5>
+      </div>
+
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item d-flex justify-content-between">Club 
+          <span>{{player.club}}</span> 
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">Nationality 
+          <span>{{player.nationality}}</span>
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">Rarity
+          <span>{{player.rarity}}</span> 
+        </li>
+      </ul>
+
+    </div>
+  </div> 
+</div>

@@ -1,0 +1,70 @@
+<div class="container" >
+  <div class="row">
+    <div *ngIf="!editable" class="card m-3" style="width: 20rem; float: left">
+      <div class="card-body">
+        <h5 class="card-title d-flex justify-content-between">{{player.name}}
+          <span 
+              [class]="getBadgeColor(this.player.OPR)"
+              [ngClass]="{ 'badge':true,'badge-pill':true }">   
+              {{ player.OPR }}
+          </span>
+        </h5>
+      </div>
+
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item d-flex justify-content-between">Club 
+          <span>{{player.club}}</span> 
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">Nationality 
+          <span>{{player.nationality}}</span> 
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">Rarity
+          <span>{{player.rarity}}</span> 
+        </li>
+
+        <li class="list-group-item d-flex justify-content-between">
+
+           <button *ngIf="!editable" (click)="deletePlayer()" type="button" class="btn btn-primary">Delete</button>
+
+           <button *ngIf="!editable" (click)="makeEditable(player)" type="submit" class="btn btn-primary">Edit</button>
+        </li>
+
+        <!-- <li class="list-group-item text-right">
+           
+        </li> -->
+      </ul>
+     
+    </div>
+
+    <div *ngIf="editable">
+    	<form class="form" #userForm="ngForm">
+    		<!-- {{player | json}} -->
+    		<div class="form-group">
+    			<label for="name" >Name</label>
+    			<input [(ngModel)]="player.name" class="form-control" name="name" id="name">
+    		</div>
+    		<div class="form-group">
+    			<label for="OPR" >OPR</label>
+    			<input [(ngModel)]="player.OPR" name="OPR" type="text" class="form-control" id="OPR">
+    		</div>
+    		<div class="form-group">
+    			<label for="club" >Club</label>
+    			<input [(ngModel)]="player.club" name="club" type="text" class="form-control" id="club">
+    		</div>
+    		<div class="form-group">
+    			<label for="nationality" >Nationality</label>
+    			<input [(ngModel)]="player.nationality" name="nationality" type="text" class="form-control" id="nationality">
+    		</div>
+
+        <div class="d-flex justify-content-between">
+    		  <button (click)="editPlayer()" type="button" class="btn btn-primary">Update</button>
+          <button (click)="cancelEdit()" type="button" class="btn btn-primary">Cancel</button>
+        </div>
+    	</form>
+    </div>
+
+  </div> 
+</div>

@@ -1,0 +1,55 @@
+<div class="container" >
+  <div class="row">
+
+    <div>
+    	<form class="form" #playerForm="ngForm">
+    		<!-- {{player | json}} -->
+    		<div class="form-group">
+    			<label for="name">Name</label>
+    			<input [(ngModel)]="addPlayerData.name" class="form-control" name="name" id="name">
+    		</div>
+    		<div class="form-group">
+    			<label for="OPR">OPR</label>
+    			<input [(ngModel)]="addPlayerData.OPR" name="OPR" type="text" class="form-control" id="OPR">
+    		</div>
+    		<div class="form-group">
+    			<label for="club">Club</label>
+    			<input [(ngModel)]="addPlayerData.club" name="club" type="text" class="form-control" id="club">
+    		</div>
+    		<!-- <div class="form-group">
+    			<label for="nationality">Nationality</label>
+    			<input [(ngModel)]="addPlayerData.nationality" name="nationality" type="text" class="form-control" id="nationality">
+    		</div> -->
+
+            <div class="form-group">
+              <label>Nationality</label>
+              <select required class="custom-select" name="nationality" 
+              #nationality="ngModel" 
+              [(ngModel)]="addPlayerData.nationality"
+              [class.is-invalid]="nationality.invalid && nationality.touched"
+              [class.is-valid]="nationality.valid && nationality.touched">
+                <!-- <option value="">Select the nationality</option> -->
+                <option *ngFor="let nationality of nationalities" [value]="nationality">{{ nationality }}</option>
+              </select>
+
+              
+
+
+              <small class="text-danger" *ngIf="nationality.invalid && nationality.touched">Topic is required.</small>
+
+            </div>
+
+            
+
+    		<!-- <div class="form-group" hidden>
+    			<label for="rarity" class="sr-only">Rarity</label>
+    			<input [(ngModel)]="addPlayerData.rarity" name="rarity" type="text" class="form-control" id="rarity">
+    		</div> -->
+
+
+    		<button (click)="addPlayer()" type="submit" class="btn btn-primary">Add</button>
+    	</form>
+    </div>
+
+  </div> 
+</div>

@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1 class="display-4">PES 2018</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg"  >See all players</a>
+    <a class="btn btn-primary btn-lg"  >Black players</a>
+
+	<button type="button" class="btn btn-outline-primary" (click)="getAllPlayers()">All players</button>
+	<button type="button" class="btn btn-outline-dark" (click)="getBlack()">Black</button>
+	<button type="button" class="btn btn-outline-dark" (click)="getGold()">Gold</button>
+  <button type="button" class="btn btn-outline-dark" (click)="getSilver()">Silver</button>
+  <button type="button" class="btn btn-outline-dark" (click)="getBronze()">Bronze</button>
+  <button type="button" class="btn btn-outline-dark" (click)="getWhite()">White</button>
+  </p>
+</div>
+
+
+<router-outlet></router-outlet>
